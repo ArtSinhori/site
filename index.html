@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário: Auroras Boreais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Questionário: Auroras</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. O que causa as auroras boreais?</p>
+                <label>
+                    <input type="radio" name="q1" value="a"> Radiação solar
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="b"> Fenômenos atmosféricos
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="c"> Atividade sísmica
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="d"> Efeito de poluição
+                </label><br>
+            </div>
+
+            <div class="question">
+                <p>2. Em quais regiões do mundo as auroras boreais são mais visíveis?</p>
+                <label>
+                    <input type="radio" name="q2" value="a"> Próximo ao Equador
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="b"> Nas regiões polares
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="c"> Em zonas urbanas
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="d"> Em desertos
+                </label><br>
+            </div>
+
+            <div class="question">
+                <p>3. Qual é o principal gás responsável pela cor verde das auroras?</p>
+                <label>
+                    <input type="radio" name="q3" value="a"> Oxigênio
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="b"> Nitrogênio
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="c"> Argônio
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="d"> Carbono
+                </label><br>
+            </div>
+
+            <div class="question">
+                <p>4. Qual é a outra nomenclatura para aurora boreal no hemisfério sul?</p>
+                <label>
+                    <input type="radio" name="q4" value="a"> Aurora Austral
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="b"> Aurora Polar
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="c"> Aurora Borealis
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="d"> Aurora Celestial
+                </label><br>
+            </div>
+
+            <div class="question">
+                <p>5. Em que condições o fenômeno das auroras boreais é mais intenso?</p>
+                <label>
+                    <input type="radio" name="q5" value="a"> Quando há uma grande tempestade solar
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="b"> Quando o clima está muito frio
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="c"> Durante o inverno polar
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="d"> Quando há poluição atmosférica
+                </label><br>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Verificar Respostas</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let correctAnswers = 0;
+
+            // Respostas corretas
+            const answers = {
+                q1: 'a', // Radiação solar
+                q2: 'b', // Nas regiões polares
+                q3: 'a', // Oxigênio
+                q4: 'a', // Aurora Austral
+                q5: 'a'  // Quando há uma grande tempestade solar
+            };
+
+            // Verificando respostas
+            const form = document.getElementById('quizForm');
+            for (let question in answers) {
+                const selectedOption = form.querySelector(`input[name="${question}"]:checked`);
+                if (selectedOption && selectedOption.value === answers[question]) {
+                    correctAnswers++;
+                }
+            }
+
+            // Exibir resultado
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = `Você acertou ${correctAnswers} de 5 respostas.`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
 
